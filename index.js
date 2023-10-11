@@ -1,15 +1,12 @@
 const express = require('express');
-const pool = require('./databaseConnection');
-const port = 3001;
-
-// const name = "chiara";
-// const email = "m.chiarap@gmail.com"
-// const username = "Kiki"
-// const dob = "1982-09-29"
+const pool = require('./databaseConnection.js');
+const port = 3000;
+const cors = require('cors');
 
 const app = express();
 
 app.use(express.json())
+app.use(cors())
 
 app.get("/", (req, res) => {
   const getUsersQuery = "SELECT * FROM users";
